@@ -6,12 +6,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.medici.demo.App;
+import com.medici.demo.todo.base.BaseActivity;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
+import dagger.android.AndroidInjector;
 
-public class TaskActivity extends AppCompatActivity implements TaskContract.View {
+public class TaskActivity extends BaseActivity implements TaskContract.View {
 
     @Inject
     TaskPresenter mPresenter;
@@ -19,11 +21,11 @@ public class TaskActivity extends AppCompatActivity implements TaskContract.View
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((App)getApplication()).getAppComponent()
+        /*((App)getApplication()).getAppComponent()
                 .taskComponent()
                 .view(this)
                 .build()
-                .inject(this);
+                .inject(this);*/
 
         mPresenter.start();
     }

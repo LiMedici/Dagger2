@@ -11,8 +11,9 @@ public class TaskPresenterModule {
 
     @Provides
     @ActivityScope
-    TaskPresenter provideTaskPresenter(TaskRepository taskRepository,TaskContract.View view){
-        return new TaskPresenter(taskRepository,view);
+    // 必须具体到类型，不能是超类或者子类
+    TaskPresenter provideTaskPresenter(TaskRepository taskRepository,TaskActivity activity){
+        return new TaskPresenter(taskRepository,activity);
     }
 
 }
